@@ -14,9 +14,9 @@ To get started with the Cooking Converter, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/Kev-in-mk/cooking-converter.git`
 2. Navigate to the project directory: `cd cooking-converter`
-3. Install the dependencies: `npm install`
-4. Start the application: `npm start`
-5. Access the Cooking Converter in your browser at `http://localhost:3000`
+3. Install the dependencies: kivy
+4. Start the application.
+
 
 ## Usage
 
