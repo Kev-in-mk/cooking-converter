@@ -1,0 +1,10 @@
+imperial,metric,imperial_to_metric,metric_to_imperial
+Ounce,Milliliters,29.57,0.0338
+Cup,Milliliters,236.6,0.0042
+Quart,Liters,0.95,1.057
+Gallon,Liters,3.785,0.264
+Ounce,Milligrams,28350,0.000035
+Ounce,Grams,28.35,0.035
+Pound,Grams,453.59,0.002205
+Pound,Kilograms,0.454,2.2046
+Ton,Kilograms,907.18,0.0011

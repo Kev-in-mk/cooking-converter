@@ -1,0 +1,53 @@
+<WindowManager>:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    name: 'main'
+    MDBoxLayout:
+        padding: [20, 20, 20, 20]
+        orientation: 'vertical'
+        MDGridLayout:
+            cols: 1
+            rows: 2
+
+            MDTextField:
+                hint_text: "Please enter your username:"
+#                helper_text: "This will disappear when you click off"
+#                helper_text_mode: "on_focus"
+                id: passw
+#                size_hint: .3, .3
+                multiline: False
+            MDTextField:
+                hint_text: "Please enter your password:"
+#                helper_text: "This will disappear when you click off"
+#                helper_text_mode: "on_focus"
+                id: passw
+#                size_hint: .3, .3
+                multiline: False
+        MDGridLayout:
+            cols: 1
+            rows: 1
+            MDRectangleFlatButton:
+                text: "Submit"
+                size_hint: .9, .9
+                on_release:
+                    app.root.current = "second"  # if passw.text == "kevin" else "main"
+                    root.manager.transition.direction = 'left'
+
+
+<SecondWindow>:
+    name: "second"
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: [20, 20, 20, 20]
+
+        GridLayout:
+            rows: 1
+            MDRectangleFlatButton:
+                text: "Go Back"
+                size_hint: .9, .9
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = 'right'
+

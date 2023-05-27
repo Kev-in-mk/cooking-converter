@@ -1,0 +1,489 @@
+#<MainMDRectangleFlatIconButton@MDRaisedButton>:
+<MainMDRectangleFlatIconButton@MDRectangleFlatButton>:
+#    font_name: 'fonts/Semir.otf'
+
+#    center_x: self.center_x
+#    font_size: '30sp'
+#    size_hint: None, None
+#    increment_width: dp(64)
+#    button_label: True
+#    width: dp(176)
+#    min: dp(176)
+#    size: dp(48), dp(48)
+#    pos_hint: {'center_x': .5, 'center_y': .4}
+    background_normal: ''
+
+
+    md_bg_color: .8, .2, .2, .5
+    text_color: app.theme_cls.primary_light #1, 1, 1, 1
+
+#    height: root.height
+#    text_size: self.size
+
+<Container>:
+    padding: [5, 5, 5, 5]
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+    FifthWindow:
+<MainWindow>:
+    name: 'main'
+    canvas.before:
+#        Color:
+#            rgb: 1, 1, 0
+        Rectangle:
+            source: 'bg2.jpg'
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        cols: 2
+        rows: 4
+        padding: [5, 5, 5, 5]
+        BoxLayout:
+            padding: [5, 5, 5, 5]
+            MainMDRectangleFlatIconButton:
+
+#                background_color: .2, .2, .2, 1
+#                width: dp(280)
+#                multiline: True
+#                theme_text_color: "Custom"
+#                text_color: app.theme_cls.primary_color
+#                hint_animation: True
+
+#                size: dp(100), dp(100)
+                size_hint: .9, .9
+#                size: dp(250), dp(200)
+                icon: 'cup'
+#                button_label: True
+#                halign: 'center'
+#                text_size: self.parent.size
+#                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: root.liquid_and_volume
+#                background_color: app.theme_cls.primary_color
+                on_release:
+                    app.root.current = 'second'
+                    root.manager.transition.direction = 'left'
+#                    root.manager.transition = FadeTransition()
+        BoxLayout:
+            padding: [5, 5, 5, 5]
+            MainMDRectangleFlatIconButton:
+                size_hint: .9, .9
+                halign: 'center'
+#                pos_hint: {'center_x': .5, 'center_y': .5}
+                icon: 'weight'
+                color: app.theme_cls.primary_dark
+    #            halign: 'left'
+                text: 'Dry\nmeasures'
+                on_release:
+                    app.root.current = 'third'
+                    root.manager.transition.direction = 'left'
+        BoxLayout:
+            padding: [5, 5, 5, 5]
+            MainMDRectangleFlatIconButton:
+                size_hint: .9, .9
+#                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Non-liquid\nIngredients'
+                icon: 'cup-off'
+                on_release:
+                    app.root.current = 'fifth'
+                    root.manager.transition.direction = 'left'
+        BoxLayout:
+            padding: [5, 5, 5, 5]
+            MainMDRectangleFlatIconButton:
+                size_hint: .9, .9
+#                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Oven Temperature\nConversion'
+                icon: 'stove'
+                on_release:
+                    app.root.current = 'fourth'
+                    root.manager.transition.direction = 'left'
+<SecondWindow>
+    name: 'second'
+    GridLayout:
+        rows: 8
+        padding: [5, 5, 5, 5]
+        BoxLayout:
+            size_hint: .3, .3
+            MDLabel:#MDIcon:
+#                font_size: '36sp'
+#                font_name: 'fonts/Semir.otf'
+                halign: 'center'
+                text: '- Liquid and Volume measures -' #'Icon'
+#                source: 'img/jar.png'
+                color: app.theme_cls.primary_dark
+        MDSeparator:
+            size: (5, 5)
+        BoxLayout:
+            size_hint: .5, .25
+            MDTextFieldRect:
+#                foreground_color: app.theme_cls.primary_dark
+#                background_active: 'bg.jpg'
+#                background_normal: 'bg.jpg'
+                halign: 'center'
+                input_type: 'number'
+#                normal_color: app.theme_cls.primary_color
+#                color_active: app.theme_cls.primary_dark
+#                size_hint: .5, .4
+#                font_size: '34sp'
+#                font_name: 'fonts/Semir.otf'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: app.theme_cls.primary_light
+                id: input_amount
+                text: ''
+                multiline: False
+                hint_text: 'Enter Amount'
+#                hint_text_color: app.theme_cls.primary_light
+#                line_color_focus: app.theme_cls.primary_color#color_mode: 'accent'
+                icon_left: 'cup'
+                required: True
+                helper_text_mode: 'on_error'
+#                mode: 'rectangle'
+        BoxLayout:
+            size_hint: .9, .9
+            MDCard:
+                background_normal: ''
+#                md_bg_color: app.theme_cls.primary_light #.3, 0, .2, .6
+                orientation: "vertical"
+                padding: "8dp"
+                MDLabel:
+#                    font_name: 'fonts/Semir.otf'
+                    halign: 'center'
+#                    font_size: '36sp'
+                    size_hint: 1, .5
+                    id: imperial_unit
+                    text: root.imperial_unit
+                    color: app.theme_cls.primary_light
+                MDSeparator:
+                    height: "1dp"
+                MDLabel:
+#                    font_name: 'fonts/Semir.otf'
+                    halign: 'center'
+#                    size_hint: 1, .3
+                    id: result
+#                    font_size: '36sp'
+                    text: root.result
+                    color: app.theme_cls.primary_dark
+                MDSeparator:
+                    height: "1dp"
+                MDLabel:
+                    size_hint: 1, .5
+                    halign: 'center'
+                    valign: 'middle'
+#                    font_size: '36sp'
+#                    font_name: 'fonts/Semir.otf'
+                    id: metric_unit
+                    text: root.metric_unit
+                    color: app.theme_cls.primary_light
+
+        BoxLayout:
+            MDRectangleFlatButton:
+                size_hint: .5, .5
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Units'
+                on_release: root.change_units()
+            MDRectangleFlatButton:
+                size_hint: .5, .5
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Convert'
+                on_release: root.conversion()
+        BoxLayout:
+            MDRectangleFlatButton:
+                size_hint: .9, .9
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Back!!'
+                on_release:
+                    app.root.current = 'main'
+                    root.manager.transition.direction = 'right'
+#                    root.manager.transition = FadeTransition()
+<ThirdWindow>:
+    name: 'third'
+    GridLayout:
+        padding: [5, 5, 5, 5]
+        rows: 8
+        BoxLayout:
+            size_hint: .3, .3
+            MDLabel:
+#                font_size: '36sp'
+#                font_name: 'fonts/Semir.otf'
+                halign: 'center'
+                text: '- Dry measures -' #'Icon'
+#                source: 'img/jar.png'
+                color: app.theme_cls.primary_dark
+        MDSeparator:
+            size: (5, 5)
+        BoxLayout:
+            size_hint: .5, .25
+            MDTextFieldRect:
+#                foreground_color: app.theme_cls.primary_dark
+#                background_active: 'bg.jpg'
+#                background_normal: 'bg.jpg'
+                halign: 'center'
+                input_type: 'number'
+#                normal_color: app.theme_cls.primary_color
+#                color_active: app.theme_cls.primary_dark
+#                size_hint: .5, .4
+#                font_size: '34sp'
+#                font_name: 'fonts/Semir.otf'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: app.theme_cls.primary_light
+                id: input_amount
+                text: ''
+                multiline: False
+                hint_text: 'Enter Amount'
+#                hint_text_color: app.theme_cls.primary_light
+#                line_color_focus: app.theme_cls.primary_color#color_mode: 'accent'
+                icon_left: 'cup'
+                required: True
+                helper_text_mode: 'on_error'
+#                mode: 'rectangle'
+        BoxLayout:
+            size_hint: .9, .9
+            MDCard:
+                background_normal: ''
+#                md_bg_color: app.theme_cls.primary_light #.3, 0, .2, .6
+                orientation: "vertical"
+                padding: "8dp"
+                MDLabel:
+#                    font_name: 'fonts/Semir.otf'
+                    halign: 'center'
+#                    font_size: '36sp'
+                    size_hint: 1, .5
+                    halign: 'center'
+                    id: imperial_unit
+                    text: root.imperial_unit
+                    color: app.theme_cls.primary_light
+                MDSeparator:
+                    height: "1dp"
+                MDLabel:
+#                    font_name: 'fonts/Semir.otf'
+                    halign: 'center'
+#                    size_hint: 1, .3
+                    id: result
+#                    font_size: '36sp'
+                    text: root.result
+                    color: app.theme_cls.primary_dark
+                MDSeparator:
+                    height: "1dp"
+                MDLabel:
+                    size_hint: 1, .5
+                    halign: 'center'
+                    valign: 'middle'
+#                    font_size: '36sp'
+#                    font_name: 'fonts/Semir.otf'
+                    id: metric_unit
+                    text: root.metric_unit
+                    color: app.theme_cls.primary_light
+        BoxLayout:
+            MDRectangleFlatButton:
+                size_hint: .5, .5
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Units'
+                on_release: root.change_units()
+            MDRectangleFlatButton:
+                size_hint: .5, .5
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Convert'
+                on_release: root.conversion()
+        BoxLayout:
+            MDRectangleFlatButton:
+                size_hint: .9, .9
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Back!!'
+                on_release:
+                    app.root.current = 'main'
+                    root.manager.transition.direction = 'right'
+#                    root.manager.transition = FadeTransition()
+
+<FourthWindow>:
+    name: 'fourth'
+    GridLayout:
+        rows: 8
+        padding: [5, 5, 5, 5]
+        BoxLayout:
+            size_hint: .3, .3
+            MDLabel:
+#                font_size: '36sp'
+#                font_name: 'fonts/Semir.otf'
+                halign: 'center'
+                text: '- Oven temperature conversion -'
+                color: app.theme_cls.primary_dark
+        MDSeparator:
+            size: (5, 5)
+        BoxLayout:
+            size_hint: .5, .25
+            MDTextFieldRect:
+#                foreground_color: app.theme_cls.primary_dark
+#                background_active: 'bg.jpg'
+#                background_normal: 'bg.jpg'
+                halign: 'center'
+                input_type: 'number'
+#                valign: 'middle'
+#                font_name: 'fonts/Semir.otf'
+#                normal_color: app.theme_cls.primary_color
+#                color_active: app.theme_cls.primary_dark
+#                size_hint: .5, .33
+#                font_size: '34sp'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: app.theme_cls.primary_light
+                id: input_amount
+                text: ''
+                multiline: False
+                hint_text: 'Enter Temperature'
+#                hint_text_color: app.theme_cls.primary_light
+#                line_color_focus: app.theme_cls.primary_color#color_mode: 'accent'
+                icon_left: 'temp'
+                required: True
+                helper_text_mode: 'on_error'
+#                mode: 'rectangle'
+        BoxLayout:
+            size_hint: .9, .9
+            MDCard:
+#                background: 'img/bg3.jpg'
+#                border_radius: 10
+                focus_behavior: True
+                ripple_behavior: True
+                orientation: "vertical"
+                padding: "8dp"
+#                size_hint: 1, .6
+#                size: "280dp", "180dp"
+#                pos_hint: {"center_x": .5, "center_y": .5}
+                MDLabel:
+#                    font_name: 'fonts/Semir.otf'
+#                    font_size: '36sp'
+                    size_hint: 1, .5
+                    halign: 'center'
+                    text: root.fahrenheit
+                    color: app.theme_cls.primary_light
+
+                MDSeparator:
+                    height: "1dp"
+                MDLabel:
+#                    font_name: 'fonts/Semir.otf'
+    #                text: 'result'
+                    halign: 'center'
+                    id: result
+#                    font_size: '36sp'
+                    text: root.result
+                    color: app.theme_cls.primary_dark
+                MDSeparator:
+                    height: "1dp"
+                MDLabel:
+#                    font_name: 'fonts/Semir.otf'
+#                    font_size: '36sp'
+                    size_hint: 1, .5
+                    halign: 'center'
+                    text: root.celsius
+                    color: app.theme_cls.primary_light
+
+        BoxLayout:
+            MDRectangleFlatButton:
+                size_hint: .5, .5
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'C / F' if root.mode == 0 else 'F / C'
+                on_release: root.change_units()
+            MDRectangleFlatButton:
+                size_hint: .5, .5
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Convert'
+                on_release: root.conversion()
+        BoxLayout:
+            MDRectangleFlatButton:
+                size_hint: .9, .9
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Back!!'
+                on_release:
+                    app.root.current = 'main'
+                    root.manager.transition.direction = 'right'
+#                    root.manager.transition = FadeTransition()
+<FifthWindow>:
+    name: 'fifth'
+    GridLayout:
+        rows: 8
+        padding: [5, 5, 5, 5]
+        BoxLayout:
+            size_hint: .3, .3
+            MDLabel:
+#                font_size: '36sp'
+#                font_name: 'fonts/Deuxieme_Rang.otf'
+                halign: 'center'
+                text: '- Non-Liquid Ingredients -'
+                color: app.theme_cls.primary_dark
+        MDSeparator:
+            size: (5, 5)
+        BoxLayout:
+            size_hint: .5, .25
+            MDTextFieldRect:
+#                foreground_color: app.theme_cls.primary_dark
+#                background_active: 'bg.jpg'
+#                background_normal: 'bg.jpg'
+                halign: 'center'
+                input_type: 'number'
+#                font_name: 'fonts/Deuxieme_Rang.otf'
+#                valign: 'middle'
+#                normal_color: app.theme_cls.primary_color
+#                color_active: app.theme_cls.primary_dark
+#                size_hint: .5, .4
+#                font_size: '34sp'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: app.theme_cls.primary_light
+                id: input_amount
+                text: ''
+                multiline: False
+                hint_text: 'Number of cups'
+#                hint_text_color: app.theme_cls.primary_light
+#                line_color_focus: app.theme_cls.primary_color#color_mode: 'accent'
+                icon_left: 'cup'
+                required: True
+                helper_text_mode: 'on_error'
+#                mode: 'rectangle'
+        BoxLayout:
+            size_hint: .9, .9
+            MDCard:
+#                background: 'img/bg3.jpg'
+#                border_radius: 10
+                focus_behavior: True
+                ripple_behavior: True
+                orientation: "vertical"
+                padding: "8dp"
+#                size_hint: 1, .6
+#                size: "280dp", "180dp"
+#                pos_hint: {"center_x": .5, "center_y": .5}
+                MDLabel:
+#                    font_name: 'fonts/Semir.otf'
+#                    font_size: '36sp'
+                    size_hint: 1, .5
+                    halign: 'center'
+                    text: root.ingredient
+                    color: app.theme_cls.primary_light
+                MDSeparator:
+                    height: "1dp"
+                MDLabel:
+#                    font_name: 'fonts/Semir.otf'
+    #                text: 'result'
+                    halign: 'center'
+                    id: result
+#                    font_size: '36sp'
+                    text: root.result
+                    color: app.theme_cls.primary_dark
+
+        BoxLayout:
+            MDRectangleFlatButton:
+                size_hint: .5, .5
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Ingredient'
+                on_release: root.change_units()
+            MDRectangleFlatButton:
+                size_hint: .5, .5
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Convert'
+                on_release: root.conversion()
+        BoxLayout:
+            MDRectangleFlatButton:
+                size_hint: .9, .9
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Back!!'
+                on_release:
+                    app.root.current = 'main'
+                    root.manager.transition.direction = 'right'
+#                    root.manager.transition = FadeTransition()
