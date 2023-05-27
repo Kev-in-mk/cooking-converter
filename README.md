@@ -6,6 +6,7 @@ The Cooking Converter is a versatile tool that allows you to easily convert vari
 
 - Conversion of liquid measurements such as cups, fluid ounces, and milliliters.
 - Conversion of dry ingredients like ounces, grams, and pounds.
+- Non-liquid ingredients like flour, sugar, rice etc.
 - Temperature conversion between Celsius and Fahrenheit.
 
 ## Getting Started
